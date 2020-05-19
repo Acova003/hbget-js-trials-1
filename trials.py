@@ -30,37 +30,82 @@ def print_as_numbered_list(items):
 
 
 def get_range(start, stop):
-    nums = [];
+    nums = []
 
     for i in range(start, stop):
         nums.append(i)
 
 
 def censor_vowels(word):
-    chars = [];
+    chars = []
 
     for letter in word:
         if 'aeiou'.includes(letter):
+            chars.append('*')
+        else:
             chars.append(letter)
 
     return chars.join('')
 
 
 def snake_to_camel(string):
-    pass  # TODO: replace this line with your code
+    camelCase = []
+
+    for word in string.split('_'):
+    camelCase.append("f{word[0].capitalize}{word[1].capitalize}")
+  }
+
+  return camelCase.join('')
 
 
 def longest_word_length(words):
-    pass  # TODO: replace this line with your code
+    longest = len(words[0])
+
+    for word in words:
+        if longest < len(word):
+            longest = len(word)
+    return longest
 
 
 def truncate(string):
-    pass  # TODO: replace this line with your code
+    result = []
+
+    for char in string:
+        if len(result) == 0 or char != result[-1]:
+            result.append(char)
+
+    return result.join('')
 
 
 def has_balanced_parens(string):
-    pass  # TODO: replace this line with your code
+    parens = 0
+
+    for char in string:
+        if char == '(':
+            parens += 1
+        elif (char === ')':
+            parens -= 1
+
+    if parens < 0:
+        return false
 
 
 def compress(string):
-    pass  # TODO: replace this line with your code
+    compressed = []
+
+    curr_char = ''
+    char_count = 0
+
+    for char in string:
+        if char is not curr_char:
+            compressed.append(curr_char)
+
+    if char_count > 1:
+        compressed.append(str(char_count))
+        curr_char = char
+        char_count = 0
+    char_count += 1
+
+    compressed.append(curr_char)
+    if char_count > 1:
+        compressed.append(str(char_count))
